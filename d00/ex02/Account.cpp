@@ -6,6 +6,8 @@ Account::Account(void) {}
 Account::Account(int initial_deposit) : _amount(initial_deposit)
 {
 	_displayTimestamp();
+	this->_nbDeposits = 0;
+	this->_nbWithdrawals = 0;
 	this->_accountIndex = _nbAccounts;
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->_amount << ";created" << std::endl;
@@ -77,7 +79,6 @@ void Account::_displayTimestamp(void)
 		<< TimeInfo->tm_min
 		<< TimeInfo->tm_sec
 		<< "] ";
-		
 }
 
 //operations
@@ -85,7 +86,7 @@ void Account::makeDeposit(int deposit)
 {
 	_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
-	std::cout << "p_amount:" << this->_amount <<";";
+	std::cout << "p_amount:" << this->_amount << ";";
 	std::cout << "deposit:" << deposit << ";";
 	this->_nbDeposits++;
 	if (deposit != 0)
