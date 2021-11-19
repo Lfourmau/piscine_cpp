@@ -82,6 +82,12 @@ int	Phonebook::_input_user_index(void)
 	{
 		std::cout << "Please enter a user index between " << 0 << " and " << this->_nb_user_toprint - 1 << " for more informations : ";
 		std::getline(std::cin, input);
+		if (std::cin.eof() == 1)
+		{
+			std::cin.clear();
+			std::cin.ignore();
+			return (-1);
+		}
 		if (!input.empty() && _is_full_digits(input))
 			index_input = stoi(input);
 	}
@@ -105,6 +111,8 @@ int	Phonebook::_command_dispatcher(std::string input)
 		}
 		_print_all_contacts();
 		int index_user = _input_user_index();
+		if (index_user == -1)
+			return (1);
 		_print_user_info(index_user);
 	}
 	else if (input.compare("EXIT") == 0)
