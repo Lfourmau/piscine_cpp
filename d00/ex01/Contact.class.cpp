@@ -60,13 +60,20 @@ void	Contact::set_darkestsecret(std::string input)
 }
 //print funcs
 
-void	Contact::_print_fill(std::string message, void (Contact::*set)(std::string input))
+int	Contact::_print_fill(std::string message, void (Contact::*set)(std::string input))
 {
 	std::string input;
 
 	std::cout << message;
 	std::getline(std::cin, input);
+	if (std::cin.eof() == 1)
+	{
+		std::cin.clear();
+		std::cin.ignore();
+		return (1);
+	}
 	(this->*set)(input);
+	return (0);
 }
 
 void	Contact::print_contact(int i) const
@@ -89,10 +96,15 @@ void	Contact::print_contact(int i) const
 
 void	Contact::add(void)
 {
-	_print_fill("Enter a first name : ", &Contact::set_firstname);
-	_print_fill("Enter a last name : ", &Contact::set_lastname);
-	_print_fill("Enter a nickname : ", &Contact::set_nickname);
-	_print_fill("Enter a phone number : ", &Contact::set_phonenumber);
-	_print_fill("Enter a darkest secret : ", &Contact::set_darkestsecret);
+	if (_print_fill("Enter a first name : ", &Contact::set_firstname) == 1)
+		return ;
+	if (_print_fill("Enter a last name : ", &Contact::set_lastname) == 1)
+		return ;
+	if (_print_fill("Enter a nickname : ", &Contact::set_nickname) == 1)
+		return ;
+	if (_print_fill("Enter a phone number : ", &Contact::set_phonenumber) == 1)
+		return ;
+	if (_print_fill("Enter a darkest secret : ", &Contact::set_darkestsecret) == 1)
+		return ;
 	return;
 }

@@ -24,7 +24,7 @@ class Contact{
 
 	private :
 
-	void		_print_fill(std::string message, void (Contact::*set)(std::string input));
+	int			_print_fill(std::string message, void (Contact::*set)(std::string input));
 	std::string _firstname;
 	std::string _lastname;
 	std::string _nickname;

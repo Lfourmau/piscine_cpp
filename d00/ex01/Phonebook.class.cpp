@@ -119,6 +119,12 @@ int	Phonebook::loop(void)
 	while (1)
 	{
 		std::getline(std::cin, input);
+		if (std::cin.eof()==1)
+		{
+			std::cin.clear();
+			std::cin.ignore();
+			return (1);
+		}
 		if (_command_dispatcher(input) == 1)
 			break;
 	}
