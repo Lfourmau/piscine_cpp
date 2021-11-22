@@ -85,7 +85,6 @@ int	Phonebook::_input_user_index(void)
 		if (std::cin.eof() == 1)
 		{
 			std::cin.clear();
-			std::cin.ignore();
 			return (-1);
 		}
 		if (!input.empty() && _is_full_digits(input))
@@ -130,7 +129,6 @@ int	Phonebook::loop(void)
 		if (std::cin.eof()==1)
 		{
 			std::cin.clear();
-			std::cin.ignore();
 			return (1);
 		}
 		if (_command_dispatcher(input) == 1)

@@ -33,27 +33,27 @@ std::string Contact::get_phonenumber(void) const
 	return (this->_phonenumber);
 }
 //setters
-void	Contact::set_firstname(std::string input)
+void	Contact::_set_firstname(std::string input)
 {
 	this->_firstname = input;
 	return;
 }
-void	Contact::set_lastname(std::string input)
+void	Contact::_set_lastname(std::string input)
 {
 	this->_lastname = input;
 	return;
 }
-void	Contact::set_nickname(std::string input)
+void	Contact::_set_nickname(std::string input)
 {
 	this->_nickname = input;
 	return;
 }
-void	Contact::set_phonenumber(std::string input)
+void	Contact::_set_phonenumber(std::string input)
 {
 	this->_phonenumber = input;
 	return;
 }
-void	Contact::set_darkestsecret(std::string input)
+void	Contact::_set_darkestsecret(std::string input)
 {
 	this->_darkestsecret = input;
 	return;
@@ -69,7 +69,6 @@ int	Contact::_print_fill(std::string message, void (Contact::*set)(std::string i
 	if (std::cin.eof() == 1)
 	{
 		std::cin.clear();
-		std::cin.ignore();
 		return (1);
 	}
 	(this->*set)(input);
@@ -96,15 +95,15 @@ void	Contact::print_contact(int i) const
 
 void	Contact::add(void)
 {
-	if (_print_fill("Enter a first name : ", &Contact::set_firstname) == 1)
+	if (_print_fill("Enter a first name : ", &Contact::_set_firstname) == 1)
 		return ;
-	if (_print_fill("Enter a last name : ", &Contact::set_lastname) == 1)
+	if (_print_fill("Enter a last name : ", &Contact::_set_lastname) == 1)
 		return ;
-	if (_print_fill("Enter a nickname : ", &Contact::set_nickname) == 1)
+	if (_print_fill("Enter a nickname : ", &Contact::_set_nickname) == 1)
 		return ;
-	if (_print_fill("Enter a phone number : ", &Contact::set_phonenumber) == 1)
+	if (_print_fill("Enter a phone number : ", &Contact::_set_phonenumber) == 1)
 		return ;
-	if (_print_fill("Enter a darkest secret : ", &Contact::set_darkestsecret) == 1)
+	if (_print_fill("Enter a darkest secret : ", &Contact::_set_darkestsecret) == 1)
 		return ;
 	return;
 }

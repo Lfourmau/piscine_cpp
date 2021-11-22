@@ -4,7 +4,7 @@ SRCS = 	megaphone.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME) 
 

@@ -7,11 +7,11 @@ SRCS = 	tests.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME) 
 
-%.o : %.cpp
+%.o : %.cpp $(INC)
 	clang++ -c $(CFLAGS) $< -o $(<:.cpp=.o) -g
 
 $(NAME) : $(OBJS)
