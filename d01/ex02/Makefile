@@ -1,10 +1,8 @@
-NAME = Zombies
+NAME = ref
 
-INC = Zombie.hpp \
+INC =
 
-SRCS = 	Zombie.cpp \
-		ZombieHorde.cpp \
-		main.cpp \
+SRCS =	main.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

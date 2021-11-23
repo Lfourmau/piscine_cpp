@@ -1,10 +1,14 @@
-NAME = Zombies
+NAME = fight
 
-INC = Zombie.hpp \
+INC = 	HumanA.hpp \
+		HumanB.hpp \
+		Weapon.hpp \
 
-SRCS = 	Zombie.cpp \
-		ZombieHorde.cpp \
-		main.cpp \
+
+SRCS = 	main.cpp \
+		Weapon.cpp \
+		HumanA.cpp \
+		HumanB.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
