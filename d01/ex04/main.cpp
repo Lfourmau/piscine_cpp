@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <string>
 
 void replace_word(std::string *toreplace, std::string replace)
 {
@@ -21,7 +22,7 @@ int main(int argc, char **av)
 		{
 			std::string word;
 			iss >> word;
-			if (!word.compare(av[1]))
+			if (word.find(av[1]) != std::string::npos)
 				replace_word(&word, av[2]);
 			ofs << word << " ";
 		}
