@@ -20,36 +20,29 @@ void	Karen::error(void)
 	std::cout << "Karen is taking about an error" << std::endl;
 }
 
-std::string Karen::upperString(std::string str) const
-{
-	int i = -1;
-
-	while (str[++i])
-		str[i] = std::toupper(str[i]);
-	return (str);
-}
-
 void	Karen::complain(std::string level)
 {
 	int i = 0;
 
-	std::string upperLevel = upperString(level);
-	std::string levels[] = {"debug", "info", "warning", "error"};
+	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void (Karen::*functionsPtr[])(void)= {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
-
-
-	while (i < 4 && (upperString(levels[i]).compare(upperLevel) && upperString(levels[i]).compare(upperLevel)))
+	while (i < 4 && level.compare(levels[i]))
 		i++;
-	if (i == 4)	
+	switch (i)
 	{
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-		return ;
-	}
-	while (i < 4)
-	{
-		std::cout << "[" << upperString(levels[i]) << "]" << std::endl;
-		(this->*functionsPtr[i])();
-		std::cout << std::endl;
-		i++;
+	case 0 : std::cout << "[" << levels[i] << "]" << std::endl;
+			(this->*functionsPtr[0])();
+			i++;
+	case 1 : std::cout << "[" << levels[i] << "]" << std::endl;
+			(this->*functionsPtr[1])();
+			i++;
+	case 2 : std::cout << "[" << levels[i] << "]" << std::endl;
+			(this->*functionsPtr[2])();
+			i++;
+	case 3 : std::cout << "[" << levels[i] << "]" << std::endl;
+			(this->*functionsPtr[3])();
+			break;
+	default: std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+			break;
 	}
 }

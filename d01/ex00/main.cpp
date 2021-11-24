@@ -1,6 +1,19 @@
 #include <iostream>
 #include "Zombie.hpp"
 
+int	full_digit(std::string str)
+{
+	int i = 0;
+
+	while (str[i])
+	{
+		if (!isdigit(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int main(int argc, char **av)
 {
 	(void)argc;
