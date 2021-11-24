@@ -2,6 +2,7 @@
 
 Zombie *zombieHorde(int N, std::string name)
 {
+	//check on N
 	Zombie *horde = new Zombie[N];
 	std::string fullname = name + " number ";
 	int i = 0;

@@ -20,15 +20,36 @@ void	Karen::error(void)
 	std::cout << "Karen is taking about an error" << std::endl;
 }
 
+std::string Karen::upperString(std::string str)
+{
+	int i = -1;
+
+	while (str[++i])
+		str[i] = std::toupper(str[i]);
+	return (str);
+}
+
 void	Karen::complain(std::string level)
 {
 	int i = 0;
 
+	std::string upperLevel = upperString(level);
 	std::string levels[] = {"debug", "info", "warning", "error"};
 	void (Karen::*functionsPtr[])(void)= {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
-	while (i < 4 && levels[i].compare(level))
+
+
+	while (i < 4 && (upperString(levels[i]).compare(upperLevel) && upperString(levels[i]).compare(upperLevel)))
 		i++;
 	if (i == 4)	
+	{
+		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 		return ;
-	(this->*functionsPtr[i])();
+	}
+	while (i < 4)
+	{
+		std::cout << "[" << upperString(levels[i]) << "]" << std::endl;
+		(this->*functionsPtr[i])();
+		std::cout << std::endl;
+		i++;
+	}
 }
