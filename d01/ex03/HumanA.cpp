@@ -4,7 +4,7 @@ HumanA::HumanA(std::string name, Weapon& weaponPass) : _name(name), weapon(weapo
 
 HumanA::~HumanA(void) {};
 
-void HumanA::attack(void)
+void HumanA::attack(void) const
 {
 	std::cout <<
 		this->_name <<

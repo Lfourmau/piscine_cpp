@@ -3,7 +3,7 @@
 HumanB::HumanB(std::string name) :  weapon(NULL), _name(name) {};
 HumanB::~HumanB(void) {};
 
-void HumanB::attack(void)
+void HumanB::attack(void) const
 {
 	std::cout <<
 		this->_name <<

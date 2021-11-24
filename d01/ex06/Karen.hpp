@@ -14,7 +14,7 @@ class Karen {
 		void info(void);
 		void warning(void);
 		void error(void);
-		std::string upperString(std::string str);
+		std::string upperString(std::string str) const;
 };
 
 #endif

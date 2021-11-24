@@ -8,9 +8,10 @@ int main(int argc, char **av)
 	std::string fullname;
 	int i = 0;
 	Zombie *zombie;
-	if (argc == 1)
+
+	if (argc == 1 || !full_digit(av[1]))
 	{
-		std::cout << "Please enter a number of Zombies" << std::endl;
+		std::cout << "Please enter a number of Zombies (> to 0)" << std::endl;
 		return (1);
 	}
 	while (i < std::stoi(av[1]))

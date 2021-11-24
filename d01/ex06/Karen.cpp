@@ -20,7 +20,7 @@ void	Karen::error(void)
 	std::cout << "Karen is taking about an error" << std::endl;
 }
 
-std::string Karen::upperString(std::string str)
+std::string Karen::upperString(std::string str) const
 {
 	int i = -1;
 
