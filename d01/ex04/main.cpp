@@ -1,31 +1,55 @@
 #include <iostream>
+#include <filesystem>
 #include <fstream>
 #include <sstream>
 #include <string>
 
-void replace_word(std::string *toreplace, std::string replace)
+int	error(std::string message)
 {
-	*toreplace = replace; 
+	std::cout << message << std ::endl;
+	return (1);
+}
+
+void replace_string(std::string *line, std::string toreplace, std::string replace)
+{
+	std::size_t index = 0;
+
+	while ((index = line->find(toreplace, index)) != std::string::npos)
+	{
+		line->erase(index, toreplace.length());
+		line->insert(index, replace);
+		index += replace.length();
+	}
+}
+
+std::string build_output(std::string filename)
+{
+	int i = -1;
+
+	while (filename[++i])
+		filename[i] = toupper(filename[i]);
+	filename += ".replace";
+	return (filename);
 }
 
 int main(int argc, char **av)
 {
-	(void)argc;
-	//error management to do
+	if (argc != 4)
+		return (error("Pleaser enter [Existing input filename] [String to delete] [String to add]"));
+	std::string search = av[2];
+	std::string replace = av[3];
+	if (search.empty() || replace.empty())
+		return (error("You can't send an empty string"));
+
 	std::string line;
-	std::ifstream ifs("civilisation.txt");
-	std::ofstream ofs("out.txt");
+	std::ifstream ifs(av[1]);
+	if (!ifs)
+		return (error("Input file does not exist"));
+	std::ofstream ofs(build_output(av[1]));
 	while (getline(ifs, line))
 	{
-		std::istringstream iss(line);
-		while (iss)
-		{
-			std::string word;
-			iss >> word;
-			if (word.find(av[1]) != std::string::npos)
-				replace_word(&word, av[2]);
-			ofs << word << " ";
-		}
-		ofs << std::endl;
+		replace_string(&line, search, replace);
+		ofs << line << std::endl;
 	}
+	return (0);
 }
