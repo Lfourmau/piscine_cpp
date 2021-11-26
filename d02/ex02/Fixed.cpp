@@ -27,19 +27,50 @@ Fixed::~Fixed(void)
 	std::cout << "Destructor called" << std::endl;
 }
 
-
-//operators
+//Arithmetc operators
 Fixed& Fixed::operator=(Fixed const& rhs)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	this->_fixedValue = rhs.getRawBits();
 	return (*this);
 }
+Fixed Fixed::operator+(Fixed const& rhs)
+{
+	return Fixed(this->_fixedValue + rhs.getRawBits());
+}
 std::ostream& operator<<(std::ostream& out, Fixed const& rhs)
 {
 	out << rhs.toFloat();
 	return (out);
 }
+
+
+//Comparison operators
+bool Fixed::operator<(Fixed const& rhs)
+{
+	return (this->getRawBits() < rhs.getRawBits());
+}
+bool Fixed::operator>(Fixed const& rhs)
+{
+	return (this->getRawBits() > rhs.getRawBits());
+}
+bool Fixed::operator<=(Fixed const& rhs)
+{
+	return (this->getRawBits() <= rhs.getRawBits());
+}
+bool Fixed::operator>=(Fixed const& rhs)
+{
+	return (this->getRawBits() >= rhs.getRawBits());
+}
+bool Fixed::operator==(Fixed const& rhs)
+{
+	return (this->getRawBits() == rhs.getRawBits());
+}
+bool Fixed::operator!=(Fixed const& rhs)
+{
+	return (this->getRawBits() != rhs.getRawBits());
+}
+
 
 
 //accessors
