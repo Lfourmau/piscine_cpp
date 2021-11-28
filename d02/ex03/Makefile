@@ -5,8 +5,8 @@ INC = 	Fixed.hpp \
 
 SRCS = 	main.cpp \
 		Fixed.cpp \
-		bsp.cpp \
 		Point.cpp \
+		bsp.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

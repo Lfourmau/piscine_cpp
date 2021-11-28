@@ -44,10 +44,12 @@ Fixed& Fixed::operator*(Fixed const& rhs)
 	this->_fixedValue *= rhs.toFloat();
 	return (*this);
 }
-Fixed& Fixed::operator-(Fixed const& rhs)
+Fixed Fixed::operator-(Fixed const& rhs) const
 {
-	this->_fixedValue -= rhs.getRawBits();
-	return (*this);
+	Fixed tmp;
+
+	tmp.setRawBits(this->_fixedValue - rhs._fixedValue);
+	return (tmp);
 }
 Fixed& Fixed::operator/(Fixed const& rhs)
 {

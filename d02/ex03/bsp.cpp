@@ -1,17 +1,21 @@
 #include "Point.hpp"
 
-float sign (Point p1, Point p2, Point p3)
+Fixed sign (Point p1, Point p2, Point p3)
 {
     return (p1.getX() - p3.getX()) * (p2.getY() - p3.getY()) - (p2.getX() - p3.getX()) * (p1.getY() - p3.getY());
 }
 
-bool bsp( Point const a, Point const b, Point const c, Point const point)
+bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	bool b1, b2, b3;
+	Fixed d1, d2, d3;
+    bool has_neg, has_pos;
 
-    b1 = sign(a, b, c) < 0.0f;
-    b2 = sign(a, c, point) < 0.0f;
-    b3 = sign(a, point, b) < 0.0f;
+    d1 = sign(a, b, c);
+    d2 = sign(a, c, point);
+    d3 = sign(a, point, b);
 
-    return ((b1 == b2) && (b2 == b3));
+    has_neg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+    has_pos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+
+    return !(has_neg && has_pos);
 }

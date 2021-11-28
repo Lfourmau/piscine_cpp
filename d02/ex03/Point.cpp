@@ -18,21 +18,18 @@ Point& Point::operator=(Point const& rhs)
 	(void)rhs;
 	return (*this);
 }
-
-bool bsp( Point const a, Point const b, Point const c, Point const point)
+std::ostream& operator<<(std::ostream& out, Point const& rhs)
 {
-	(void)a;
-	(void)b;
-	(void)c;
-	(void)point;
-	return (true);
+	out << rhs.getX().toFloat() << ";";
+	out << rhs.getY().toFloat();
+	return (out);
 }
 
-Fixed const Point::getX(void)
+Fixed const Point::getX(void) const
 {
 	return (this->_x);
 }
-Fixed const Point::getY(void)
+Fixed const Point::getY(void) const
 {
 	return (this->_y);
 }
