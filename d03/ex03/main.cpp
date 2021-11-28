@@ -9,4 +9,5 @@ int main(void)
 	
 	diamond.highFivesGuys();
 	diamond.attack("unknown");
+	diamond.attack("unknown");
 }

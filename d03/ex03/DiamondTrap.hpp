@@ -12,10 +12,7 @@ class DiamondTrap : public FragTrap, public ScavTrap {
 		~DiamondTrap(void);
 		DiamondTrap& operator=(DiamondTrap const& rhs);
 		using ScavTrap::attack;
-		using FragTrap::_hitpoint;
-		using ScavTrap::_energy_points;
-		using ScavTrap::_attack_damage;
-
+	
 	private:
 		std::string _name;
 };
