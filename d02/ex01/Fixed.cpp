@@ -19,7 +19,7 @@ Fixed::Fixed(const int src)
 Fixed::Fixed(const float src)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_fixedValue = ((src * (1 << nbBits)));
+	this->_fixedValue = roundf(((src * (1 << nbBits))));
 }
 //destructor
 Fixed::~Fixed(void)

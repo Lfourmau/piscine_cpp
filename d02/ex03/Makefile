@@ -1,4 +1,4 @@
-NAME = run
+NAME = bsp
 
 INC = 	Fixed.hpp \
 		Point.hpp

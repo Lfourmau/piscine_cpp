@@ -9,7 +9,7 @@ Fixed::Fixed(void)
 Fixed::Fixed(Fixed const& src)
 {
 	//std::cout << "Copy constructor called" << std::endl;
-	operator=(src);
+	*this = src;
 }
 Fixed::Fixed(const int src)
 {
@@ -19,7 +19,7 @@ Fixed::Fixed(const int src)
 Fixed::Fixed(const float src)
 {
 	//std::cout << "Float constructor called" << std::endl;
-	this->_fixedValue = ((src * (1 << nbBits)));
+	this->_fixedValue = roundf(((src * (1 << nbBits))));
 }
 //destructor
 Fixed::~Fixed(void)
@@ -34,25 +34,33 @@ Fixed& Fixed::operator=(Fixed const& rhs)
 	this->_fixedValue = rhs.getRawBits();
 	return (*this);
 }
-Fixed& Fixed::operator+(Fixed const& rhs)
+Fixed Fixed::operator+(Fixed const& rhs) const
 {
-	this->_fixedValue += rhs.getRawBits();
-	return (*this);
+	Fixed tmp;
+
+	tmp.setRawBits(this->_fixedValue + rhs.getRawBits());
+	return (tmp);
 }
-Fixed& Fixed::operator*(Fixed const& rhs)
+Fixed Fixed::operator*(Fixed const& rhs) const
 {
-	this->_fixedValue *= rhs.toFloat();
-	return (*this);
+	Fixed tmp;
+
+	tmp.setRawBits(this->_fixedValue * rhs.toFloat());
+	return (tmp);
 }
-Fixed& Fixed::operator-(Fixed const& rhs)
+Fixed Fixed::operator-(Fixed const& rhs) const
 {
-	this->_fixedValue -= rhs.getRawBits();
-	return (*this);
+	Fixed tmp;
+
+	tmp.setRawBits(this->_fixedValue - rhs.getRawBits());
+	return (tmp);
 }
-Fixed& Fixed::operator/(Fixed const& rhs)
+Fixed Fixed::operator/(Fixed const& rhs) const
 {
-	this->_fixedValue /= rhs.toFloat();
-	return (*this);
+	Fixed tmp;
+
+	tmp.setRawBits(this->_fixedValue / rhs.toFloat());
+	return (tmp);
 }
 Fixed Fixed::operator++(int)
 {
@@ -86,27 +94,27 @@ std::ostream& operator<<(std::ostream& out, Fixed const& rhs)
 
 
 //Comparison operators
-bool Fixed::operator<(Fixed const& rhs)
+bool Fixed::operator<(Fixed const& rhs) const
 {
 	return (this->getRawBits() < rhs.getRawBits());
 }
-bool Fixed::operator>(Fixed const& rhs)
+bool Fixed::operator>(Fixed const& rhs) const
 {
 	return (this->getRawBits() > rhs.getRawBits());
 }
-bool Fixed::operator<=(Fixed const& rhs)
+bool Fixed::operator<=(Fixed const& rhs) const
 {
 	return (this->getRawBits() <= rhs.getRawBits());
 }
-bool Fixed::operator>=(Fixed const& rhs)
+bool Fixed::operator>=(Fixed const& rhs) const
 {
 	return (this->getRawBits() >= rhs.getRawBits());
 }
-bool Fixed::operator==(Fixed const& rhs)
+bool Fixed::operator==(Fixed const& rhs) const
 {
 	return (this->getRawBits() == rhs.getRawBits());
 }
-bool Fixed::operator!=(Fixed const& rhs)
+bool Fixed::operator!=(Fixed const& rhs) const
 {
 	return (this->getRawBits() != rhs.getRawBits());
 }

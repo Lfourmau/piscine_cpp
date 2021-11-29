@@ -3,10 +3,10 @@
 Point::Point(void) : _x(Fixed()), _y(Fixed()) {};
 Point::~Point(void) {};
 
-Point::Point(Point const& src)
+Point::Point(Point const& src) : _x(src._x), _y(src._y)
 {
 	//std::cout << "Copy constructor called" << std::endl;
-	operator=(src);
+	return ;
 }
 Point::Point(Fixed const x, Fixed const y) : _x(Fixed(x)), _y(Fixed(y))
 {

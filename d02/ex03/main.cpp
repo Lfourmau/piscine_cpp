@@ -5,14 +5,14 @@
 int main(void)
 {
 	Point p1;
-	Point p2( 0.42f, 4.2f );
-	Point p3( 4, 2 );
+	Point p2(10, 0);
+	Point p3(0, 10);	
 
-	Point test1( 0.2f, 1.9f );
-	Point test2( -1, 0 );
-	Point test3;
+	Point test1(0, 0);
+	Point test2(1, 8 );
+	Point test3(-2, 7);
 	Point test4( 0.01f, 0.01f );
-	Point test5( 3.4f, 2 );
+	Point test5( 53, 2 );
 
 	std::cout << "Triangle : " << p1 << " " << p2 << " " << p3 << std::endl;
 	std::cout << "Test " << test1 << " : " << (bsp(p1, p2, p3, test1) ? "true" : "false") << std::endl;

@@ -20,7 +20,7 @@ Fixed::~Fixed(void)
 Fixed& Fixed::operator=(Fixed& rhs)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	this->_fixedVal_ue = rhs.getRawBits();
+	this->_fixedValue = rhs.getRawBits();
 	return (*this);
 }
 
