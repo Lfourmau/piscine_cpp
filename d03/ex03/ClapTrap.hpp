@@ -8,6 +8,7 @@ class ClapTrap {
 		ClapTrap(void);
 		ClapTrap(std::string name);
 		ClapTrap(ClapTrap& src);
+		ClapTrap(std::string name, int hitpoint, int energy_points, int attack_damage);
 		~ClapTrap(void);
 		ClapTrap& operator=(ClapTrap const& rhs);
 		void attack(std::string const & target);

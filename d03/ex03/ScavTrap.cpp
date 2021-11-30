@@ -1,11 +1,8 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(void) {};
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-	_hitpoint = 100;
-	_energy_points = 50;
-	_attack_damage = 20;
 	std::cout << "ScavTrap construcor called" << std::endl;
 }
 ScavTrap::ScavTrap(ScavTrap const& src)

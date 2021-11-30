@@ -1,16 +1,21 @@
-NAME = bsp
+NAME = ouafouaf
 
-INC = 	Fixed.hpp \
-		Point.hpp
+INC = 	Animal.hpp \
+		Cat.hpp \
+		Dog.hpp \
+		WrongAnimal.hpp \
+		WrongClass.hpp \
 
 SRCS = 	main.cpp \
-		Fixed.cpp \
-		Point.cpp \
-		bsp.cpp \
+		Dog.cpp \
+		Animal.cpp \
+		Cat.cpp \
+		#WrongAnimal.cpp \
+		WrongClass.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98  -Wshadow -Wno-shadow
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME) 
 
