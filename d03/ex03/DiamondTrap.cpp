@@ -10,7 +10,7 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name", 100, 
 DiamondTrap::DiamondTrap(DiamondTrap const& src)
 {
 	std::cout << "DiamondTrap constructor called" << std::endl;
-	operator=(src);
+	*this = src;
 }
 DiamondTrap& DiamondTrap::operator=(DiamondTrap const& rhs)
 {
