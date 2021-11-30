@@ -26,5 +26,5 @@ std::string Dog::getType(void) const
 }
 void Dog::makeSound(void) const
 {
-	std ::cout << "This is the dog makesound" << std::endl;
+	std ::cout << "This is the dog sound" << std::endl;
 }
