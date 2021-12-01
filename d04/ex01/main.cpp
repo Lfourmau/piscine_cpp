@@ -19,4 +19,14 @@ int main(void)
 	int i = -1;
 	while (++i < 8)
 		delete animals[i];
+
+	
+	std::cout << "-----ASSIGN OPERATOR-----" << std::endl;
+	Animal *tst = new Cat();
+	Animal *tst2 = new Cat();
+	tst->setIdea(0, "idee1");
+	*tst2 = *tst;
+	tst2->setIdea(0, "idee2");
+	std::cout << "TST idea --> " << tst->getIdea(0) << std::endl;
+	std::cout << "TST2 idea --> " << tst2->getIdea(0) << std::endl;
 }
