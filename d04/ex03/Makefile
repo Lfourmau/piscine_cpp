@@ -1,20 +1,11 @@
-NAME = ouafouaf
+NAME = Materias
 
-INC = 	Animal.hpp \
-		Cat.hpp \
-		Dog.hpp \
-		WrongAnimal.hpp \
-		WrongCat.hpp \
+INC = 	AMateria.hpp \
 
 SRCS = 	main.cpp \
-		Dog.cpp \
-		Animal.cpp \
-		Cat.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
+		AMateria.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
-
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = clang++

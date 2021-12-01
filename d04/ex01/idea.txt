@@ -1,1 +1,0 @@
-Virtual for destruct and construct, comme ca quand on va tout init avec Animal* c'est les funcs de dog et cat qui seront app ?

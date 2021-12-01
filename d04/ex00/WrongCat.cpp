@@ -1,7 +1,7 @@
 #include "WrongCat.hpp"
 
 //Cannonic elements
-WrongCat::WrongCat(void) : Animal::Animal()
+WrongCat::WrongCat(void) : WrongAnimal::WrongAnimal()
 {
 	std::cout << "WrongCat default constructor called" << std::endl;
 	this->type = "WrongCat";
