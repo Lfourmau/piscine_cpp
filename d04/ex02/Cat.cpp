@@ -5,12 +5,12 @@ Cat::Cat(void) : Animal::Animal()
 {
 	std::cout << "Cat default constructor called" << std::endl;
 	this->type = "Cat";
-	this->brain = new(Brain);
+	this->brain = new Brain();
 }
 Cat::Cat(Cat const& src)
 {
 	operator=(src);
-	this->brain = new(Brain);
+	this->brain = new Brain();
 	std::cout << "Cat copy constructor caled" << std::endl;
 }
 Cat::~Cat(void)
@@ -21,7 +21,7 @@ Cat::~Cat(void)
 Cat& Cat::operator=(Cat const& rhs)
 {
 	this->type = rhs.type;
-	this->brain = new(Brain);
+	this->brain = new Brain();
 
 	int i = -1;
 	while (++i < 100)

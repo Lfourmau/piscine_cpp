@@ -5,7 +5,7 @@ Dog::Dog(void) : Animal::Animal()
 {
 	std::cout << "Dog default constructor called" << std::endl;
 	this->type = "Dog";
-	this->brain = new(Brain);
+	this->brain = new Brain();
 }
 Dog::Dog(Dog const& src)
 {
@@ -20,7 +20,7 @@ Dog::~Dog(void)
 Dog& Dog::operator=(Dog const& rhs)
 {
 	this->type = rhs.type;
-	this->brain = new(Brain);
+	this->brain = new Brain();
 
 	int i = -1;
 	while (++i < 100)

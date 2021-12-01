@@ -9,8 +9,7 @@ class Dog : public Animal {
 		Dog(void);
 		Dog(Dog const& src);
 		virtual ~Dog(void);
-		Dog& operator=(Dog const& rhs);
-		std::string getType(void) const;
+		virtual Dog& operator=(Dog const& rhs);
 		virtual void makeSound(void) const;
 		virtual void setIdea(int id ,std::string message);
 		virtual std::string getIdea(int id);
