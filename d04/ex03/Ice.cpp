@@ -7,7 +7,7 @@ Ice::Ice(void) : AMateria("ice")
 }
 Ice::Ice(std::string const& type) : AMateria(type)
 {
-	std::cout << "Default Ice constructor called" << std::endl;
+	std::cout << "String Ice constructor called" << std::endl;
 	//this->_type = type;
 }
 Ice::Ice(Ice const& src) : AMateria(src)
@@ -18,7 +18,7 @@ Ice::Ice(Ice const& src) : AMateria(src)
 
 Ice& Ice::operator=(Ice const& rhs)
 {
-	//assignation operator
+	(void)rhs;
 	return (*this);
 }
 std::string const& Ice::getType() const

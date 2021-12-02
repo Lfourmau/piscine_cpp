@@ -5,6 +5,11 @@ AMateria::AMateria(std::string const& type) : _type(type)
 	std::cout << "AMateria constructor called" << std::endl;
 }
 
+//AMateria::AMateria(AMateria const& src)
+//{
+//	(void)src;
+//}
+
 std::string const& AMateria::getType() const
 {
 	return (this->_type);
@@ -13,4 +18,17 @@ std::string const& AMateria::getType() const
 void AMateria::use(ICharacter& target)
 {
 	std::cout << "Use function of AMateria called" << std::endl;
+	(void)target;
+}
+
+AMateria& AMateria::operator=(AMateria& rhs)
+{
+	std::cout << "AMateria assignation operator called" << std::endl;
+	(void)rhs;
+	return (*this);
+}
+
+AMateria::~AMateria(void)
+{
+	std::cout << "AMateria destructor called" << std::endl;
 }

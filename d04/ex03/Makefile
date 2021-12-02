@@ -1,9 +1,21 @@
 NAME = Materias
 
 INC = 	AMateria.hpp \
+		Ice.hpp \
+		Cure.hpp \
+		Character.hpp \
+		ICharacter.hpp \
+		IMateriaSource.hpp \
+		MateriaSource.hpp \
 
 SRCS = 	main.cpp \
 		AMateria.cpp \
+		Ice.cpp \
+		Cure.cpp \
+		Character.cpp \
+		ICharacter.cpp \
+		IMateriaSource.cpp \
+		MateriaSource.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

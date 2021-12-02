@@ -8,7 +8,6 @@ Cure::Cure(void) : AMateria("cure")
 Cure::Cure(std::string const& type) : AMateria(type)
 {
 	std::cout << "Default cure constructor called" << std::endl;
-	//this->_type = type;
 }
 Cure::Cure(Cure const& src) : AMateria(src)
 {
@@ -18,7 +17,7 @@ Cure::Cure(Cure const& src) : AMateria(src)
 
 Cure& Cure::operator=(Cure const& rhs)
 {
-	//assignation operator
+	(void)rhs;
 	return (*this);
 }
 std::string const& Cure::getType() const

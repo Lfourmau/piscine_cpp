@@ -8,19 +8,20 @@ class Character : public ICharacter{
 	public:
 		Character(void);
 		Character(std::string name);
+		Character(Character const& src);
 		~Character(void);
 		Character& operator=(Character const& rhs);
+
+		virtual std::string const & getName() const;
+		virtual void equip(AMateria* m);
+		virtual void unequip(int idx);
+		virtual void use(int idx, ICharacter& target);
 		AMateria *inventory[4];
 
-		virtual std::string const & getName() const = 0;
-		virtual void equip(AMateria* m) = 0;
-		virtual void unequip(int idx) = 0;
-		virtual void use(int idx, ICharacter& target) = 0;
-		//constructor with name as parameter
-		//copy deep
-
 	private:
+		void inc_slot(void);
 		std::string _name;
+		int _slot;
 };
 
 #endif
