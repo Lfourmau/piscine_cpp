@@ -8,8 +8,9 @@ class ICharacter;
 class AMateria
 {
 	public:
+		AMateria(void);
 		AMateria(std::string const& type);
-		//AMateria(AMateria const& src);
+		AMateria(AMateria const& src);
 		~AMateria(void);
 		AMateria& operator=(AMateria& rhs);
 		std::string const & getType() const; //Returns the materia type
@@ -17,7 +18,7 @@ class AMateria
 		virtual void use(ICharacter& target);
 
 	protected:
-		std::string const& _type;
+		std::string _type;
 };
 
 #endif
