@@ -1,4 +1,6 @@
 #include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 MateriaSource::MateriaSource(void) : _slot(0)
 {
@@ -39,8 +41,19 @@ void MateriaSource::learnMateria(AMateria *m)
 AMateria *MateriaSource::createMateria(std::string const & type)
 {
 	if (type.compare("ice") && type.compare("cure"))
+	{
 		return (0);
-	else
-		return 0;
+	}
+	else if (!type.compare("ice"))
+	{
+		Ice *ret = new Ice;
+		return (ret);
+	}
+	else if (!type.compare("cure"))
+	{
+		Cure *ret = new Cure;
+		return (ret);
+	}
+	return (0);
 	//dont know what im doing
 }

@@ -1,4 +1,6 @@
 #include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 Character::Character(void)
 {
@@ -51,13 +53,12 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	AMateria *toUse;
+	AMateria* toUse;
 
 	toUse = this->inventory[idx];
 	toUse->use(target);
-	std::cout << toUse << std::endl;
-	(void)(target);
 	this->inventory[idx] = NULL;
+	
 }
 
 void Character::equip(AMateria *m)

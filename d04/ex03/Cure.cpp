@@ -13,6 +13,10 @@ Cure::Cure(Cure const& src) : AMateria(src)
 {
 	operator=(src);
 }
+Cure::~Cure(void)
+{
+	std::cout << "Cure destructor called" << std::endl;
+}
 
 
 Cure& Cure::operator=(Cure const& rhs)
@@ -34,5 +38,5 @@ AMateria *Cure::clone(void) const
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* heal " << target.getName() << "'s wounds *";
+	std::cout << "* heal " << target.getName() << "'s wounds *" << std::endl;
 }
