@@ -3,7 +3,6 @@
 Ice::Ice(void) : AMateria("ice")
 {
 	std::cout << "Default Ice constructor called" << std::endl;
-	//this->_type = "Ice";
 }
 Ice::Ice(std::string const& type) : AMateria(type)
 {
@@ -24,15 +23,11 @@ Ice& Ice::operator=(Ice const& rhs)
 	(void)rhs;
 	return (*this);
 }
-std::string const& Ice::getType() const
-{
-	return (this->_type);
-}
 
 AMateria *Ice::clone(void) const
 {
-	Ice *tmp = new (Ice);
-	tmp->operator=(*this);
+	std::cout << "Ice cloning" << std::endl;
+	AMateria *tmp = new Ice();
 	return (tmp);
 }
 

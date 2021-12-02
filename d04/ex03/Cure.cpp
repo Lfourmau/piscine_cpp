@@ -3,7 +3,6 @@
 Cure::Cure(void) : AMateria("cure")
 {
 	std::cout << "Default cure constructor called" << std::endl;
-	//this->_type = "cure";
 }
 Cure::Cure(std::string const& type) : AMateria(type)
 {
@@ -24,15 +23,11 @@ Cure& Cure::operator=(Cure const& rhs)
 	(void)rhs;
 	return (*this);
 }
-std::string const& Cure::getType() const
-{
-	return (this->_type);
-}
 
 AMateria *Cure::clone(void) const
 {
-	Cure *tmp = new (Cure);
-	tmp->operator=(*this);
+	std::cout << "Cure cloning" << std::endl;
+	AMateria *tmp = new Cure();
 	return (tmp);
 }
 
