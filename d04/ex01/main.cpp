@@ -5,13 +5,15 @@
 int main(void)
 {
 	std::cout << "-----INIT-----" << std::endl;
-	size_t num_of_animal_type = 4;
-	Animal *animals[num_of_animal_type * 2];
-	(void)animals;
-	for (size_t i = 0; i < num_of_animal_type; i++)
-	{
-		
-	}
+	size_t num_animals = 4;
+	size_t i = 0;
+	Animal *animals[num_animals];
+	for ( ; i < num_animals / 2; i++)
+		animals[i] = new Dog;
+	for ( ; i < num_animals; i++)
+		animals[i] = new Cat;
+	for (size_t j = 0; j < num_animals; j++)
+		delete animals[j];
 
 	std::cout << "-----ASSIGN OPERATOR-----" << std::endl;
 	Dog *tst = new Dog();

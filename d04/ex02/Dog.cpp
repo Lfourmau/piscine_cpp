@@ -19,18 +19,14 @@ Dog::~Dog(void)
 }
 Dog& Dog::operator=(Dog const& rhs)
 {
-	this->type = rhs.type;
-	this->brain = new Brain();
+	std::cout << "Dog assignation operator" << std::endl;
+	Animal::operator=(rhs);
 
 	int i = -1;
 	while (++i < 100)
 		this->brain->ideas[i] = rhs.brain->ideas[i];
 
 	return (*this);
-}
-std::string Dog::getType(void) const
-{
-	return (this->type);
 }
 void Dog::makeSound(void) const
 {

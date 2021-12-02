@@ -1,6 +1,6 @@
 #include "ICharacter.hpp"
 
-std::string const& ICharacter::getName() const
+ICharacter::ICharacter(void)
 {
-	return (this->name);
+	std::cout << "ICharacter default constructor called" << std::endl;
 }

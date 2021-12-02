@@ -3,12 +3,12 @@
 Ice::Ice(void) : AMateria("ice")
 {
 	std::cout << "Default Ice constructor called" << std::endl;
-	this->type = "Ice";
+	//this->_type = "Ice";
 }
 Ice::Ice(std::string const& type) : AMateria(type)
 {
 	std::cout << "Default Ice constructor called" << std::endl;
-	this->type = type;
+	//this->_type = type;
 }
 Ice::Ice(Ice const& src) : AMateria(src)
 {
@@ -23,7 +23,7 @@ Ice& Ice::operator=(Ice const& rhs)
 }
 std::string const& Ice::getType() const
 {
-	return (this->type);
+	return (this->_type);
 }
 
 AMateria *Ice::clone(void) const
@@ -35,5 +35,5 @@ AMateria *Ice::clone(void) const
 
 void Ice::use(ICharacter& target)
 {
-	"* shoots an ice bolt at " << target.getName() << " *";
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *";
 }

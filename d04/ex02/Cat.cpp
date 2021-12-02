@@ -20,6 +20,7 @@ Cat::~Cat(void)
 }
 Cat& Cat::operator=(Cat const& rhs)
 {
+	std::cout << "Cat assignation operator" << std::endl;
 	this->type = rhs.type;
 	this->brain = new Brain();
 

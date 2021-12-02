@@ -16,25 +16,11 @@ Animal::~Animal(void)
 }
 Animal& Animal::operator=(Animal const& rhs)
 {
+	std::cout << "Animal assignation operator" << std::endl;
 	this->type = rhs.type;
 	return (*this);
 }
 std::string Animal::getType(void) const
 {
 	return (this->type);
-}
-void Animal::makeSound(void) const
-{
-	std ::cout << "This is the animal sound" << std::endl;
-}
-void Animal::setIdea(int id, std::string message)
-{
-	(void)id;
-	(void)message;
-	return ;
-}
-std::string Animal::getIdea(int id)
-{
-	(void)id;
-	return "test";
 }

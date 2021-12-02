@@ -5,6 +5,7 @@
 int main(void)
 {
 	Dog chienchien;
+	//Animal test;
 	Cat chatchat;
 
 	chienchien.makeSound();
