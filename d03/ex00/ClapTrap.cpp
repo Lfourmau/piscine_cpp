@@ -9,7 +9,7 @@ ClapTrap::ClapTrap(std::string name, int hitpoint, int energy_points, int attack
 {
 	std::cout << "ClapTrap constructor called" << std::endl;
 }
-ClapTrap::ClapTrap(ClapTrap &src)
+ClapTrap::ClapTrap(ClapTrap const& src)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	operator=(src);
@@ -30,7 +30,10 @@ void ClapTrap::attack(std::string const & target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	this->_energy_points -= amount;
+	if (this->_energy_points - amount >= 0)
+		this->_energy_points -= amount;
+	else
+		this->_energy_points = 0;
 	std::cout << this->_name << " takes " << amount << " damages and have now " << this->_energy_points << "HP" << std::endl;
 }
 
@@ -40,7 +43,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << this->_name << " takes " << amount << " heal points and have now " << this->_energy_points << "HP" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=(ClapTrap& rhs)
+ClapTrap& ClapTrap::operator=(ClapTrap const& rhs)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	this->_name = rhs._name;

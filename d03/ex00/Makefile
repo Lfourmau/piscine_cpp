@@ -1,6 +1,6 @@
 NAME = claptest
 
-INC = Fixed.hpp \
+INC = ClapTrap.hpp \
 
 SRCS = 	main.cpp \
 		ClapTrap.cpp \

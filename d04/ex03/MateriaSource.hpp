@@ -12,9 +12,9 @@ class MateriaSource : public IMateriaSource{
 		MateriaSource& operator=(MateriaSource& rhs);
 		virtual void learnMateria(AMateria*);
 		virtual AMateria* createMateria(std::string const & type);
-		AMateria *materiaSource[4];
 
 	private:
+		AMateria *materiaSource[4];
 		int _slot;
 		void inc_slot(void);
 };

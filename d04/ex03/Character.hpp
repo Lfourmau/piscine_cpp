@@ -16,9 +16,9 @@ class Character : public ICharacter{
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
-		AMateria *inventory[4];
 
 	private:
+		AMateria *inventory[4];
 		void inc_slot(void);
 		std::string _name;
 		int _slot;

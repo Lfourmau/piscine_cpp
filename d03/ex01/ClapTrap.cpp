@@ -9,7 +9,7 @@ ClapTrap::~ClapTrap(void)
 {
 	std::cout << "ClapTrap Destructor called" << std::endl;
 }
-ClapTrap::ClapTrap(ClapTrap &src)
+ClapTrap::ClapTrap(ClapTrap const& src)
 {
 	std::cout << "ClapTrap copy constructor called" << std::endl;
 	operator=(src);
@@ -40,7 +40,10 @@ void ClapTrap::attack(std::string const & target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	this->_energy_points -= amount;
+	if (this->_energy_points - amount >= 0)
+		this->_energy_points -= amount;
+	else
+		this->_energy_points = 0;
 	std::cout << this->_name << " takes " << amount << " damages and have now " << this->_energy_points << "HP" << std::endl;
 }
 

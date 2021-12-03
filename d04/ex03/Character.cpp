@@ -11,7 +11,6 @@ Character::Character(std::string name) : _name(name), _slot(0)
 	std::cout << "Character string constructor called" << std::endl;
 	for (size_t i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
-	//set the name
 }
 Character::Character(Character const &src)
 {
@@ -54,10 +53,14 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
 	AMateria* toUse;
-
-	toUse = this->inventory[idx];
-	toUse->use(target);
-	this->inventory[idx] = NULL;
+	if (this->inventory[idx] != NULL)
+	{
+		toUse = this->inventory[idx];
+		toUse->use(target);
+		this->inventory[idx] = NULL;
+	}
+	else
+		std::cout << "No materias in this slot" << std::endl;
 	
 }
 

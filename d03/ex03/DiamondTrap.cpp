@@ -21,3 +21,8 @@ DiamondTrap::~DiamondTrap(void)
 {
 	std::cout << "DiamondTrap destructor called" << std::endl;
 }
+
+void DiamondTrap::whoAmI(void) const
+{
+	std::cout << "My name is " << this->_name << " and the ClapTrap name is " << ClapTrap::_name << std::endl;
+}
