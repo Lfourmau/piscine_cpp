@@ -65,15 +65,15 @@ void Bureaucrat::signForm(Form& toSign)
 	}
 	
 }
-void Bureaucrat::executeForm(Form const & form)
+void Bureaucrat::executeForm(Form const & tosign)
 {
 	try
 	{
-		/* code */
+		tosign.execute(*this);
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << e.what() << '\n';
+		std::cout << e.what() <<  std::endl;
 	}
 	
 }

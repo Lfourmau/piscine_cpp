@@ -1,12 +1,12 @@
 #include "Form.hpp"
 
-Form::Form(int grade) :  _name("formDefault"), _is_signed(0), _require_grade(grade)
+Form::Form(std::string name, int _sign_grade, int _exec_grade) :  _name(name), _is_signed(0), _sign_grade(_sign_grade), _exec_grade(_exec_grade)
 {
 	try
 	{
-		if (grade < 1)
+		if (_sign_grade < 1)
 			throw(Form::GradeTooHighException());
-		else if (grade > 150)
+		else if (_sign_grade > 150)
 			throw(Form::GradeTooLowException());
 	}
 	catch(const std::exception& e)
@@ -14,7 +14,7 @@ Form::Form(int grade) :  _name("formDefault"), _is_signed(0), _require_grade(gra
 		std::cout << e.what() << '\n';
 	}
 }
-Form::Form(Form const& src) : _is_signed(src._is_signed), _require_grade(src._require_grade)
+Form::Form(Form const& src) : _is_signed(src._is_signed), _sign_grade(src._sign_grade), _exec_grade(src._exec_grade)
 {
 	operator=(src);
 }
@@ -26,9 +26,13 @@ std::string Form::getName(void) const
 {
 	return (this->_name);
 }
-int Form::getRequireGrade(void) const
+int Form::getSignGrade(void) const
 {
-	return (this->_require_grade);
+	return (this->_sign_grade);
+}
+int Form::getExecGrade(void) const
+{
+	return (this->_exec_grade);
 }
 bool Form::getSigned(void) const
 {
@@ -36,21 +40,13 @@ bool Form::getSigned(void) const
 }
 
 //actions
-void Form::execute(Bureaucrat const & executor) const
+void Form::BeSigned(Bureaucrat bureaucrat)
 {
-	if (this->_is_signed == 0)
-		//throwException
-	if (executor.getGrade() > this->_require_grade)
-		throw(GradeTooLowException());
-	//execute the form
+	if (bureaucrat.getGrade() <= this->_sign_grade && this->_sign_grade >= 1 && this->_sign_grade <= 150)
+		this->_is_signed = 1;
+	else
+		throw(Form::GradeTooLowException());
 }
-//void Form::BeSigned(Bureaucrat bureaucrat)
-//{
-//	if (bureaucrat.getGrade() <= this->_require_grade && this->_require_grade >= 1 && this->_require_grade <= 150)
-//		this->_is_signed = 1;
-//	else
-//		throw(Form::GradeTooLowException());
-//}
 
 //operators
 Form& Form::operator=(Form const& rhs)
@@ -60,6 +56,6 @@ Form& Form::operator=(Form const& rhs)
 }
 std::ostream& operator<<(std::ostream& out, Form const& rhs)
 {
-	out << rhs.getName() << ", Form grade " << rhs.getRequireGrade() << ", is signed : " << rhs.getSigned();
+	out << rhs.getName() << ", Form grade " << rhs.getSignGrade() << "," << rhs.getExecGrade() << "is signed : " << rhs.getSigned();
 	return (out);
 }

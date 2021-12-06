@@ -3,10 +3,12 @@
 
 #include "Form.hpp"
 
-class ShruberryCreationForm : public Form {
+class Form;
+class ShrubberyCreationForm : public Form {
 	public :
-		ShruberryCreationForm(void);
-		~ShruberryCreationForm(void);
+		ShrubberyCreationForm(void);
+		~ShrubberyCreationForm(void);
+		virtual void execute(Bureaucrat const & executor) const;
 
 	private :
 };

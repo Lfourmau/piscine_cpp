@@ -6,15 +6,16 @@
 class Bureaucrat;
 class Form {
 	public:
-		Form(int grade);
+		Form(std::string name, int signGrade, int execGrade);
 		Form(Form const& src);
 		~Form(void);
 		Form& operator=(Form const& rhs);
 		std::string getName(void) const;
 		bool getSigned(void) const;
-		int	 getRequireGrade(void) const;
-		virtual void BeSigned(Bureaucrat bureaucrat) = 0;
-		void execute(Bureaucrat const & executor) const;
+		int	 getSignGrade(void) const;
+		int	 getExecGrade(void) const;
+		void BeSigned(Bureaucrat bureaucrat);
+		virtual void execute(Bureaucrat const & executor) const = 0;
 		class GradeTooHighException : public std::exception {
 				virtual const char *what(void) const throw() {
 					{
@@ -33,9 +34,10 @@ class Form {
 	private:
 		Form(void);
 		const 		std::string _name;
-		std::string 			target;
+		std::string 			_target;
 		bool 					_is_signed;
-		const int				_require_grade;
+		const int				_sign_grade;
+		const int				_exec_grade;
 };
 
 std::ostream& operator<<(std::ostream& out, Form const& rhs);
