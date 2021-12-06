@@ -21,24 +21,15 @@ int Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
-//exceptions
-const char* HighException::what(void) const throw()
-{
-	return ("The bureaucrat cannot be promute again");
-}
-const char* LowException::what(void) const throw()
-{
-	return ("The bureaucrat cannot be downgrade again");
-}
-
 //operations
 void Bureaucrat::downgrade(void)
 {
 	try
 	{
 		if (this->_grade == 150)
-			throw (GradeTooLowException);
+			throw (GradeTooLowException());
 		this->_grade += 1;
+		std::cout << this->_name << " is retrograted and now grade " << this->_grade << std::endl;
 	}
 	catch(std::exception& e)
 	{
@@ -51,13 +42,40 @@ void Bureaucrat::promotion(void)
 	try
 	{
 		if (this->_grade == 1)
-			throw (GradeTooHighException);
+			throw (GradeTooHighException());
 		this->_grade -= 1;
+		std::cout << this->_name << " is promute and now grade " << this->_grade << std::endl;
 	}
 	catch(std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
 	}
+}
+void Bureaucrat::signForm(Form& toSign)
+{
+	try
+	{
+		toSign.BeSigned(*this);
+		std::cout << this->_name << " signs " << toSign.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << this->_name << " cannot sign " << toSign.getName() << " because ";
+		std::cout << e.what() << std::endl;
+	}
+	
+}
+void Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		/* code */
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+	
 }
 
 
