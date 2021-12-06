@@ -2,11 +2,12 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 #include "Form.hpp"
+#include <fstream>
 
 class Form;
 class ShrubberyCreationForm : public Form {
 	public :
-		ShrubberyCreationForm(void);
+		ShrubberyCreationForm(std::string target);
 		~ShrubberyCreationForm(void);
 		virtual void execute(Bureaucrat const & executor) const;
 

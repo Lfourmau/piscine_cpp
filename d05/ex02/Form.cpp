@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form(std::string name, int _sign_grade, int _exec_grade) :  _name(name), _is_signed(0), _sign_grade(_sign_grade), _exec_grade(_exec_grade)
+Form::Form(std::string name, std::string target, int _sign_grade, int _exec_grade) : _name(name),  _target(target), _is_signed(0), _sign_grade(_sign_grade), _exec_grade(_exec_grade)
 {
 	try
 	{
@@ -37,6 +37,10 @@ int Form::getExecGrade(void) const
 bool Form::getSigned(void) const
 {
 	return (this->_is_signed);
+}
+std::string Form::getTarget(void) const
+{
+	return (this->_target);
 }
 
 //actions
