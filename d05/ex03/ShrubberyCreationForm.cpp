@@ -14,7 +14,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 	return (*this);
 }
 
-
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
 	if (this->getExecGrade() < executor.getGrade())

@@ -2,8 +2,9 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Form.hpp"
 
-
+class Form;
 class Bureaucrat {
 	public:
 		Bureaucrat(void);
@@ -15,14 +16,20 @@ class Bureaucrat {
 		int 		getGrade(void) const;
 		void		downgrade(void);
 		void		promotion(void);
-		class HighException : public std::exception {
+		void		signForm(Form& tosign);
+		void		executeForm(Form const & form);
+		class GradeTooHighException : public std::exception {
 				virtual const char *what(void) const throw() {
-					return ("Grade too high");
+					{
+						return ("The bureaucrat cannot be promute again");
+					}
 				}
 		};
-		class LowException : public std::exception {
+		class GradeTooLowException : public std::exception {
 				virtual const char *what(void) const throw() {
-					return ("Grade too low");
+					{
+						return ("The bureaucrat cannot be downgrade again");
+					}
 				}
 		};
 	private:

@@ -14,7 +14,6 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(PresidentialPardonForm
 	return (*this);
 }
 
-
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (this->getExecGrade() < executor.getGrade())

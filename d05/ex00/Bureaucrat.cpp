@@ -21,23 +21,13 @@ int Bureaucrat::getGrade(void) const
 	return (this->_grade);
 }
 
-//exceptions
-const char* HighException::what(void) const throw()
-{
-	return ("The bureaucrat cannot be promute again");
-}
-const char* LowException::what(void) const throw()
-{
-	return ("The bureaucrat cannot be downgrade again");
-}
-
 //operations
 void Bureaucrat::downgrade(void)
 {
 	try
 	{
 		if (this->_grade == 150)
-			throw (GradeTooLowException);
+			throw (LowException());
 		this->_grade += 1;
 	}
 	catch(std::exception& e)
@@ -51,7 +41,7 @@ void Bureaucrat::promotion(void)
 	try
 	{
 		if (this->_grade == 1)
-			throw (GradeTooHighException);
+			throw (HighException());
 		this->_grade -= 1;
 	}
 	catch(std::exception& e)
