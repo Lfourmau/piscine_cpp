@@ -64,6 +64,7 @@ Form *Intern::makeForm(std::string formName, std::string formTarget)
 	{
 		std::string userInput = createName(formName);
 		Form_creation(userInput, formTarget);
+		std::cout << "Intern creates " << userInput << std::endl;
 	}
 	catch(const std::exception& e)
 	{
