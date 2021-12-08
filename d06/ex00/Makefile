@@ -4,7 +4,6 @@ INC = 	convert.hpp \
 
 SRCS = 	main.cpp \
 		convert.cpp \
-		utils.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

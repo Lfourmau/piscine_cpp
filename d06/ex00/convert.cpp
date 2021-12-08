@@ -1,40 +1,54 @@
 #include "convert.hpp"
 
-static int get_type(std::string toConvert)
+void convert(std::string str)
 {
-	if (toConvert.length() == 1 && isalpha(toConvert[0]))
-		return (1);
-	if (full_digits(toConvert))
-		return (2);
-	if (stod(toConvert))
-		return (3);
-	if (stof(toConvert))
-		return (4);
-	return (0);
-}
-
-void	convert(std::string toConvert)
-{
-	int i = get_type(toConvert);
-	
-	switch (i)
+	double number;
+	std::cout.precision(20);
+	try
 	{
-	case 1:
-		std::cout<<"This is a char" << std::endl;
-		//convert_int(stoi(toConvert));
-		break;
-	case 2:
-		std::cout<<"This is an int" << std::endl;
-		break;
-	case 3:
-		std::cout<<"This is a double" << std::endl;
-		break;
-	case 4:
-		std::cout<<"This is a float" << std::endl;
-		break;
-	
-	default:
-		break;
+		if (str.length() == 1 && !isalpha(str[0]) && !isdigit(str[0]))
+			throw(std::exception());
+		else if (str.length() == 1 && isalpha(str[0]))
+			number = static_cast<int>(str[0]);
+		else
+			number = stod(str);
 	}
-	std::cout << "Conversion dispatch" << std::endl;	
+	catch(const std::exception& e)
+	{
+		std::cout << "Invalid argument" << std::endl;
+		return ;
+	}
+
+	char c = static_cast<char>(number);
+	if (isprint(c))
+		std::cout << "As char : " << c << std::endl;
+	else
+		std::cout << "As char : impossible" << std::endl;
+
+	
+	int i = static_cast<int>(number);
+	try
+	{
+		stoi(str);
+		std::cout << "As int : " << i << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << "As int : Impossible" << std::endl;
+	}
+	
+	float f = static_cast<float>(number);
+	if (f - i == 0)
+		std::cout << "As float : " << f << ".0f" << std::endl;
+	else if (f >= std::numeric_limits<float>::min() && f <= std::numeric_limits<float>::max())
+		std::cout << "As float : " << f << "f" << std::endl;
+	else
+		std::cout << "As float : impossible" << std::endl;
+
+	if (number - i == 0)
+		std::cout << "As double : " << number << ".0" << std::endl;
+	else if (number >= std::numeric_limits<double>::min() && number <= std::numeric_limits<double>::max())
+		std::cout << "As double : " << number << std::endl;
+	else
+		std::cout << "As double : impossible" << std::endl;
 }

@@ -2,10 +2,8 @@
 # define CONVERT_HPP
 
 #include <iostream>
+#include <cmath>
 
 void	convert(std::string toConvert);
-int		full_digits(std::string str);
-
-
 
 #endif
