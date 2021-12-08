@@ -32,24 +32,39 @@ Base * generate(void)
 
 void identify(Base * p)
 {
-	A* Aptr = dynamic_cast<A*>(p);
-	if (Aptr)
+	try
 	{
-		std::cout << "A" << std::endl;
-		return;
+		A* Aptr = dynamic_cast<A*>(p);
+		if (Aptr)
+			std::cout << "A" << std::endl;
 	}
-	B* Bptr = dynamic_cast<B*>(p);
-	if (Bptr)
+	catch(const std::bad_cast& e)
 	{
-		std::cout << "B" << std::endl;
-		return;
+		std::cerr << e.what() << '\n';
 	}
-	C* Cptr = dynamic_cast<C*>(p);
-	if (Cptr)
+	
+	try
 	{
-		std::cout << "C" << std::endl;
-		return;
+		B* Bptr = dynamic_cast<B*>(p);
+		if (Bptr)
+			std::cout << "B" << std::endl;
 	}
+	catch(const std::bad_cast& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		C* Cptr = dynamic_cast<C*>(p);
+		if (Cptr)
+			std::cout << "C" << std::endl;
+	}
+	catch(const std::bad_cast& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }
 
 int main(void)
