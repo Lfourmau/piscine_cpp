@@ -3,7 +3,8 @@
 void convert(std::string str)
 {
 	double number;
-	std::cout.precision(20);
+
+	std::cout.precision(9);
 	try
 	{
 		if (str.length() == 1 && !isalpha(str[0]) && !isdigit(str[0]))
@@ -20,10 +21,12 @@ void convert(std::string str)
 	}
 
 	char c = static_cast<char>(number);
-	if (isprint(c))
-		std::cout << "As char : " << c << std::endl;
-	else
+	if (!isascii(number))
 		std::cout << "As char : impossible" << std::endl;
+	else if (!isprint(c))
+		std::cout << "As char : Non printable" << std::endl;
+	else
+		std::cout << "As char : " << c << std::endl;
 
 	
 	int i = static_cast<int>(number);
@@ -40,15 +43,11 @@ void convert(std::string str)
 	float f = static_cast<float>(number);
 	if (f - i == 0)
 		std::cout << "As float : " << f << ".0f" << std::endl;
-	else if (f >= std::numeric_limits<float>::min() && f <= std::numeric_limits<float>::max())
-		std::cout << "As float : " << f << "f" << std::endl;
 	else
-		std::cout << "As float : impossible" << std::endl;
+		std::cout << "As float : " << f << std::endl;
 
 	if (number - i == 0)
 		std::cout << "As double : " << number << ".0" << std::endl;
-	else if (number >= std::numeric_limits<double>::min() && number <= std::numeric_limits<double>::max())
-		std::cout << "As double : " << number << std::endl;
 	else
-		std::cout << "As double : impossible" << std::endl;
+		std::cout << "As double : " << number << std::endl;
 }
