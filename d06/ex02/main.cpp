@@ -8,22 +8,19 @@ Base * generate(void)
 	if (random_value == 1)
 	{
 		std::cout << "Instance of A just created" << std::endl;
-		A ptr;
-		ret = &ptr;
+		ret = new A;
 		return (ret);
 	}
 	else if (random_value == 2)
 	{
 		std::cout << "Instance of B just created" << std::endl;
-		B ptr;
-		ret = &ptr;
+		ret = new B;
 		return (ret);
 	}
 	else if (random_value == 3)
 	{
 		std::cout << "Instance of C just created" << std::endl;
-		C ptr;
-		ret = &ptr;
+		ret = new C;
 		return (ret);
 	}
 	return (ret);
@@ -71,26 +68,38 @@ int main(void)
 {
 	Base *test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 	test = generate();
 	identify(test);
+	delete test;
 }
