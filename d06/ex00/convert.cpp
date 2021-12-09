@@ -21,18 +21,20 @@ void convert(std::string str)
 	}
 
 	char c = static_cast<char>(number);
-	if (!isascii(number))
+	if (!isascii(number) || isnan(number))
 		std::cout << "As char : impossible" << std::endl;
 	else if (!isprint(c))
 		std::cout << "As char : Non printable" << std::endl;
 	else
-		std::cout << "As char : " << c << std::endl;
+		std::cout << "As char : " << "'" << c << "'" << std::endl;
 
 	
 	int i = static_cast<int>(number);
 	try
 	{
-		stoi(str);
+		if (isnan(number))
+			throw(std::exception());
+		//stoi(str);
 		std::cout << "As int : " << i << std::endl;
 	}
 	catch(std::exception& e)
@@ -44,7 +46,7 @@ void convert(std::string str)
 	if (f - i == 0)
 		std::cout << "As float : " << f << ".0f" << std::endl;
 	else
-		std::cout << "As float : " << f << std::endl;
+		std::cout << "As float : " << f << "f" << std::endl;
 
 	if (number - i == 0)
 		std::cout << "As double : " << number << ".0" << std::endl;
