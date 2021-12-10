@@ -24,7 +24,7 @@ void convert(std::string str)
 	if (!isascii(number) || isnan(number))
 		std::cout << "As char : impossible" << std::endl;
 	else if (!isprint(c))
-		std::cout << "As char : Non printable" << std::endl;
+		std::cout << "As char : Non displayable" << std::endl;
 	else
 		std::cout << "As char : " << "'" << c << "'" << std::endl;
 
@@ -32,7 +32,7 @@ void convert(std::string str)
 	int i = static_cast<int>(number);
 	try
 	{
-		if (isnan(number))
+		if (isnan(number) || number < std::numeric_limits<int>::min() ||number > std::numeric_limits<int>::max())
 			throw(std::exception());
 		//stoi(str);
 		std::cout << "As int : " << i << std::endl;

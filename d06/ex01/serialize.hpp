@@ -4,7 +4,7 @@
 #include <iostream>
 
 struct Data {
-	;
+	int nb;
 };
 
 #endif

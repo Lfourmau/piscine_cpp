@@ -13,8 +13,12 @@ Data* deserialize(uintptr_t raw)
 int main(void)
 {
 	Data test;
+	Data *end;
 
 	std::cout << &test << std::endl;
-	std::cout << deserialize(serialize(&test)) << std::endl;
+	end = deserialize(serialize(&test));
+	std::cout << end << std::endl;
+	end->nb = 25;
+	std::cout << end->nb << std::endl;
 	return (0);
 }
