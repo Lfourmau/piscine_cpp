@@ -9,21 +9,48 @@ class Array {
 		T *array;
 
 		Array(void) {
-			this->array = new T[];
+			this->array = NULL;
 		}
+		~Array(void) {};
 		Array(unsigned int n) {
+			std::cout << "N constructor : " << n << std::endl;
 			this->array = new T[n];
+			for (size_t i = 0; i < n; i++)
+			{
+				this->array[i] = T();
+				std::cout << "default = " << this->array[i] << ";" << i << std::endl;
+			}
+			
+		}
+		size_t size(void) const
+		{
+			return (30);
+		}
+ 		T& operator[](size_t idx)
+		{
+			try
+			{
+				if (this->array == NULL || idx > this->size() || idx < 0)
+					throw(std::exception());
+			}
+			catch(const std::exception& e)
+			{
+				std::cout << idx << "/" << this->size() << " Out of lmits" << std::endl;
+				return *this->array;
+			}
+			return (this->array[idx]);
+			
 		}
 		Array(Array const &src) {
-			int i = 0;
-			for (size_t i = 0; src[i]; i++)
-				this->array[i] = src[i];
+			operator=(src);
 		}
 		Array& operator=(Array const& rhs)
 		{
-			int i = 0;
-			for (size_t i = 0; rhs[i]; i++)
-				this->array[i] = rhs[i];
+			delete []array;
+			this->array = new T[rhs.size()];
+			for (size_t i = 0; i < rhs.size(); i++)
+				this->array[i] = rhs.array[i];
+			return (*this);
 		}
 };
 

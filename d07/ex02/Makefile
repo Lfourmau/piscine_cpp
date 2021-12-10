@@ -1,6 +1,6 @@
 NAME = templates
 
-INC = 	whatever.hpp \
+INC = 	Array.hpp \
 
 SRCS = 	main.cpp \
 
