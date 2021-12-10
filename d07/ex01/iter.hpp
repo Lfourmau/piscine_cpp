@@ -22,5 +22,4 @@ void	iter(T *ptr, unsigned int length, void (*funcPtr)(T param))
 	}
 }
 
-
 #endif
