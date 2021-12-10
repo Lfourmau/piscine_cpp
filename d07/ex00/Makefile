@@ -1,9 +1,8 @@
-NAME = convert
+NAME = templates
 
-INC = 	convert.hpp \
+INC = 	whatever.hpp \
 
 SRCS = 	main.cpp \
-		convert.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
