@@ -14,16 +14,12 @@ class Array {
 		}
 		~Array(void) {};
 		Array(unsigned int n) {
-			std::cout << "N constructor : " << n << std::endl;
 			length = n;
 			if (n > 0)
 			{
 				this->array = new T[n];
 				for (size_t i = 0; i < n; i++)
-				{
 					this->array[i] = T();
-					std::cout << "default = " << this->array[i] << ";" << i << std::endl;
-				}
 			}
 			else
 				this->array = NULL;
@@ -33,11 +29,11 @@ class Array {
 		{
 			return (length);
 		}
- 		T& operator[](size_t idx)
+ 		T& operator[](size_t idx) const
 		{
 			try
 			{
-				if (this->array == NULL || idx > this->size() || idx < 0)
+				if (this->array == NULL || idx >= this->size() || idx < 0)
 					throw(std::exception());
 				return (this->array[idx]);
 			}

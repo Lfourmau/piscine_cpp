@@ -13,9 +13,7 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
-
-    std::cout << "first size print : " << numbers.size() << std::endl;
-
+    
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
