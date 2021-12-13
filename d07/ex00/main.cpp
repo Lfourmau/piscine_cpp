@@ -2,26 +2,17 @@
 
 int main(void)
 {
-	std::cout << "---MIN/MAX TETS----" << std::endl;
-	std::cout << max(8.25, 6.2) << std::endl;
-	std::cout << min(8.25, 6.2) << std::endl;
-	std::cout << max(8.9, 6.2) << std::endl;
-	std::cout << min(-89, -125) << std::endl;
-	std::cout << max(8.25, 112.36) << std::endl;
-	std::cout << min(8.25, 112.36) << std::endl;
-	std::cout << max(9.012f, 6.2f) << std::endl;
-	std::cout << min(9.012f, 6.2f) << std::endl;
-
-	std::cout << "---SWAP TETS----" << std::endl;
-	int a = 5, b = 10;
-	float c = 5.5f, d = 10.2f;
-
-	std::cout << "A and B before swap : " << a << " - " << b << std::endl;
-	swap(&a, &b);
-	std::cout << "A and B after swap : " << a << " - " << b << std::endl;
-	std::cout << "C and D before swap : " << c << " - " << d << std::endl;
-	swap(&c, &d);
-	std::cout << "C and D after swap : " << c << " - " << d << std::endl;
-
-	return(0);
+	int a = 2;
+	int b = 3;
+	::swap( a, b );
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	return 0;
 }

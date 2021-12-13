@@ -6,12 +6,11 @@
 template <typename T>
 void	inc(T value)
 {
-	value++;
-	std::cout << value << " - ";
+	std::cout << "Iter: " << value << "-";
 }
 
 template <typename T>
-void	iter(T *ptr, unsigned int length, void (*funcPtr)(T param))
+void	iter(T *ptr, unsigned int length, void (*funcPtr)(T const& param))
 {
 	unsigned int count = 0;
 
