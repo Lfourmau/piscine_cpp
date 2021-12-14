@@ -3,7 +3,6 @@ NAME = stack
 INC = 	mutantstack.hpp \
 
 SRCS = 	main.cpp \
-		mutantstack.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 

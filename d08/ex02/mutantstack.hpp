@@ -1,35 +1,18 @@
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
-# include <algorithm>
-# include <iostream>
 # include <stack>
-# include <list>
 
 template <typename T>
-class Mutantstack : public std::stack<T> {
-	public:
-		Mutantstack(void) {};
-		~Mutantstack(void) {};
-		T *begin(void) {
-			T* ret = NULL;
+class MutantStack : public std::stack<T> {
+public:
+	typedef typename std::stack<T>::container_type::iterator iterator;
+	
+	MutantStack() {}
+	~MutantStack() {}
 
-			std::stack<T> tmp = *this;
-			while (!tmp.empty())
-			{
-				ret = &tmp.top();
-				tmp.pop();
-			}
-			return (ret);
-		};
-		T* end(void) {
-			if (!this->empty())
-				return (&this->top());
-			else
-				return (NULL);
-		};
-
-		
+	iterator begin() { return this->c.begin(); }
+	iterator end() { return this->c.end(); }
 };
 
 #endif
