@@ -18,8 +18,9 @@ class Span {
 		std::list<int> 	lst;
 		unsigned int 	max_length;
 		unsigned int 	stored;
-		long int	smallest_itrvl;
+		long int		smallest_itrvl;
 		void 			find_interval(int i);
+		Span(void) {};
 };
 
 #endif
