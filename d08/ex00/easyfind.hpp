@@ -7,21 +7,20 @@
 # include <algorithm>
 
 template <typename T>
-int	easyfind(T container, int target)
+typename T::const_iterator	easyfind(T container, int target)
 {
-	typename T::const_iterator it;
+	typename T::const_iterator it = container.begin();
 	typename T::const_iterator ite = container.end();
+	typename T::const_iterator ret;
 
-	for (it = container.begin(); it != ite; ++it)
+	ret = std::find(it, ite, target);
+	if (ret != ite)
 	{
-		if (*it == target)
-		{
-			std::cout << target << " found !" << std::endl;
-			return (1);
-		}
+		std::cout << target << " found !" << std::endl;
+		return (ret);
 	}
 	std::cout << target << " is not in the list" << std::endl;
-	return (0);
+	return (ret);
 }
 
 #endif

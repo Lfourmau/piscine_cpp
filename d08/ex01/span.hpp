@@ -13,6 +13,23 @@ class Span {
 		void 	addNumber(int to_add);
 		int 	shortestSpan(void);
 		int 	longestSpan(void);
+		void	fill_container(int range_max, int range_min) {
+			srand(time(NULL));
+			while (this->stored < this->max_length)
+			{
+				this->lst.push_back(range_min + rand() % ( range_max - range_min + 1 ));
+				this->stored++;
+			}
+			
+		}
+		std::list<int>::iterator getBegin(void)
+		{
+			return this->lst.begin();
+		}
+		std::list<int>::iterator getEnd(void)
+		{
+			return this->lst.end();
+		}
 
 	private:
 		std::list<int> 	lst;

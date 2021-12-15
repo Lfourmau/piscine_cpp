@@ -20,7 +20,7 @@ void Span::addNumber(int to_add)
 
 void print(int value)
 {
-	std::cout << value << "--";
+	std::cout << "[" << value << "]";
 }
 
 int Span::shortestSpan(void)
