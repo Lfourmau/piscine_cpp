@@ -1,6 +1,11 @@
 #include "span.hpp"
 
 Span::Span(unsigned int n) : max_length(n), stored(0) {};
+Span::Span(unsigned int n, int range_max, int range_min) : max_length(n), stored(0)
+{
+	this->lst = std::list<int>(n);
+	fill_container(this->getBegin(), this->getEnd(), range_max, range_min);
+}
 
 void Span::addNumber(int to_add)
 {
@@ -18,11 +23,6 @@ void Span::addNumber(int to_add)
 	
 }
 
-void print(int value)
-{
-	std::cout << "[" << value << "]";
-}
-
 int Span::shortestSpan(void)
 {
 	try
@@ -30,7 +30,6 @@ int Span::shortestSpan(void)
 		if (this->stored < 2)
 			throw(std::exception());
 		this->lst.sort();
-		for_each(this->lst.begin(), this->lst.end(), print);
 		std::cout << std::endl;
 		std::list<int>::const_iterator it;	
 		std::list<int>::const_iterator ite = this->lst.end();	

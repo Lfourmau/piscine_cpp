@@ -9,18 +9,19 @@
 class Span {
 	public:
 		Span(unsigned int n);
+		Span(unsigned int n, int range_max, int range_min);
 		~Span(void) {};
 		void 	addNumber(int to_add);
 		int 	shortestSpan(void);
 		int 	longestSpan(void);
-		void	fill_container(int range_max, int range_min) {
+		void	fill_container(std::list<int>::iterator beg, std::list<int>::iterator end, int range_max, int range_min) {
 			srand(time(NULL));
-			while (this->stored < this->max_length)
+			while (beg != end)
 			{
-				this->lst.push_back(range_min + rand() % ( range_max - range_min + 1 ));
+				*beg = range_min + rand() % ( range_max - range_min + 1 );
 				this->stored++;
+				beg++;
 			}
-			
 		}
 		std::list<int>::iterator getBegin(void)
 		{
